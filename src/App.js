@@ -15,10 +15,12 @@ const ContentBox = styled.div`
 `;
 
 const StyledCircle = styled.svg`
+  z-index: ${({ zIndex }) => zIndex ? zIndex : 1};
+  opacity: 1;
   padding: 2rem;
   position: absolute; 
   circle {
-    fill: #555;
+    fill: ${({ color }) => color || '#fff'};
   }
 `;
 
@@ -30,17 +32,33 @@ const App = () => (
     <ContentBox>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Est atque corrupti eveniet maiores rem odit labore nihil omnis reprehenderit optio nostrum nisi sed fugiat in, saepe consequatur, voluptatibus quia cumque!
     </ContentBox>
-    <ParallaxItem>
-      <StyledCircle>
-        <circle cx="50" cy="50" r="50" />
+
+    {/* PARALLAX CIRCLE */}
+    <ParallaxItem depth={4}>
+      <StyledCircle color="#777" zIndex={4}>
+        <circle cx="40" cy="40" r="40" />
       </StyledCircle>
     </ParallaxItem>
+    {/* PARALLAX CIRCLE */}
+    <ParallaxItem depth={6}>
+      <StyledCircle color="#999" zIndex={6}>
+        <circle cx="60" cy="60" r="60" />
+      </StyledCircle>
+    </ParallaxItem>
+
     <ContentBox>
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae nemo deserunt libero at ullam itaque laboriosam sunt alias dolorum, fugiat unde nobis, assumenda eos? Cupiditate error eaque quae, enim assumenda fuga ipsa velit nisi illum!
     </ContentBox>
+
+    {/* PARALLAX BOX WITH 3D SHADOW */}
+    <ParallaxItem depth={2} contain shadowEffect>
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed non assumenda, quis dolorum quas nobis, consectetur obcaecati magni ipsa nemo sit placeat, id veniam cum autem natus consequatur fugiat in!
+    </ParallaxItem>
+
     <ContentBox>
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam rem vero dolores. Ea, inventore reprehenderit.
     </ContentBox>
+
     <ContentBox>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, saepe ullam vitae, explicabo officiis soluta eius optio dolore quis magni dolor vel suscipit adipisci earum asperiores nemo.
     </ContentBox>
