@@ -4,7 +4,7 @@ const ParallaxItem = ({ children, depth, contain, shadowEffect }) => {
   const [scrollPosition, setScrollPosition] = useState();
 
   const saveScrollPosition = () => {
-    setScrollPosition({ x: window.scrollX, y: window.scrollY });
+    setScrollPosition({ x: window.pageXOffset, y: window.pageYOffset });
   }
 
   useEffect(() => {
@@ -35,8 +35,8 @@ const ParallaxItem = ({ children, depth, contain, shadowEffect }) => {
     // containerStyle.position = 'absolute';
   }
   if (shadowEffect) {
-    const shadowAmount = scrollPosition ? 25 - scrollPosition.y * 0.04 * depth : 25;
-    containerStyle.boxShadow = `0 ${shadowAmount}px 35px rgba(0,0,0,0.2)`
+    const shadowAmount = scrollPosition ? 15 - scrollPosition.y * 0.06 : 15;
+    containerStyle.boxShadow = `0 ${shadowAmount}px 25px rgba(0,0,0,0.1)`
   }
 
   return (

@@ -17,7 +17,7 @@ const ContentBox = styled.div`
 const StyledCircle = styled.svg`
   z-index: ${({ zIndex }) => zIndex ? zIndex : 1};
   opacity: 1;
-  padding: 2rem;
+  padding: ${({ padding }) => padding}px;
   position: absolute; 
   circle {
     fill: ${({ color }) => color || '#fff'};
@@ -27,21 +27,22 @@ const StyledCircle = styled.svg`
 const App = () => (
   <div>
     <ContentBox>
-      Some text in here!
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque delectus ut quisquam atque porro ullam repellendus? Inventore dicta eveniet laudantium.
     </ContentBox>
+
     <ContentBox>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Est atque corrupti eveniet maiores rem odit labore nihil omnis reprehenderit optio nostrum nisi sed fugiat in, saepe consequatur, voluptatibus quia cumque!
     </ContentBox>
 
     {/* PARALLAX CIRCLE */}
     <ParallaxItem depth={4}>
-      <StyledCircle color="#777" zIndex={4}>
+      <StyledCircle color="#777" zIndex={4} padding={Math.floor(Math.random() * 80)}>
         <circle cx="40" cy="40" r="40" />
       </StyledCircle>
     </ParallaxItem>
     {/* PARALLAX CIRCLE */}
     <ParallaxItem depth={6}>
-      <StyledCircle color="#999" zIndex={6}>
+      <StyledCircle color="#fcc" zIndex={6} padding={Math.floor(Math.random() * 80)}>
         <circle cx="60" cy="60" r="60" />
       </StyledCircle>
     </ParallaxItem>
@@ -51,16 +52,18 @@ const App = () => (
     </ContentBox>
 
     {/* PARALLAX BOX WITH 3D SHADOW */}
-    <ParallaxItem depth={2} contain shadowEffect>
+    <ParallaxItem depth={1.5} zIndex={1.5} contain shadowEffect>
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed non assumenda, quis dolorum quas nobis, consectetur obcaecati magni ipsa nemo sit placeat, id veniam cum autem natus consequatur fugiat in!
     </ParallaxItem>
 
     <ContentBox>
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam rem vero dolores. Ea, inventore reprehenderit.
     </ContentBox>
-
     <ContentBox>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, saepe ullam vitae, explicabo officiis soluta eius optio dolore quis magni dolor vel suscipit adipisci earum asperiores nemo.
+    </ContentBox>
+    <ContentBox>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi quasi modi officiis provident nihil. Aspernatur, sit voluptatum. Incidunt quod ducimus enim numquam et?
     </ContentBox>
   </div>
 );
